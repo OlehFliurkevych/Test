@@ -11,7 +11,7 @@ public class EmployeeFixedPay extends Employee{
 
 	@Override
 	public double getMonthlySalary() {
-		return 0;
+		return fixedPay;
 	}
 	
 }
