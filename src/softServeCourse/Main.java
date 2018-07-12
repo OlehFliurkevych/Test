@@ -26,6 +26,11 @@ public class Main {
 		for (Employee employee : employees) {
 			System.out.println(employee);
 		}
+		
+		System.out.println("Problem b:");
+		for(int i=0;i<5;i++){
+			System.out.println(employees.get(i));
+		}
 	}
 
 }
