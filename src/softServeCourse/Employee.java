@@ -1,6 +1,8 @@
 package softServeCourse;
 
-public abstract class Employee {
+import java.io.Serializable;
+
+public abstract class Employee implements Serializable{
 
 	static int idCounter;
 	int id=0;

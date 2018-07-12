@@ -1,7 +1,11 @@
 package softServeCourse;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,6 +40,34 @@ public class Main {
 		for(int i=employees.size()-1;i>employees.size()-3-1;i--){
 			System.out.println(employees.get(i).getId());
 		}
+		
+		writeEmployeesToFile(employees);
+		
+		System.out.println("Read collection from file:");
+		List<Employee> list=readEmployeesFromFile();
+		for (Employee employee : list) {
+			System.out.println(employee);
+		}
+		
+	}
+	
+	//write collection to file
+	public static void writeEmployeesToFile(List<Employee> list){
+		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("file.txt"))){
+			oos.writeObject(list);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+	//read collection from file
+	public static List<Employee> readEmployeesFromFile(){
+		List<Employee> resultList=null;
+		try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream("file.txt"))){
+			resultList=(List<Employee>)ois.readObject();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultList;
 	}
 
 }
