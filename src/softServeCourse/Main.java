@@ -27,9 +27,14 @@ public class Main {
 			System.out.println(employee);
 		}
 		
-		System.out.println("Problem b:");
+		System.out.println("Problem A:");
 		for(int i=0;i<5;i++){
 			System.out.println(employees.get(i));
+		}
+		
+		System.out.println("Problem B:");
+		for(int i=employees.size()-1;i>employees.size()-3-1;i--){
+			System.out.println(employees.get(i).getId());
 		}
 	}
 
